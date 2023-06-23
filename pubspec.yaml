@@ -2,6 +2,7 @@ name: your_picker
 description: simple quarter, half, year picker dialog.
 version: 0.0.1
 homepage:
+repository: https://github.com/shachhan/your_picker.git
 
 environment:
   sdk: '>=3.0.3 <4.0.0'
