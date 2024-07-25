@@ -84,6 +84,8 @@ class YourPicker {
     String confirmText = "Confirm",
     String cancelText = "Cancel",
     String title = "Select Year",
+    double w = 200,
+    double h = 350,
   }) async {
     initialYear ??= DateTime.now().year;
     int selectedYear = initialYear;
@@ -93,7 +95,7 @@ class YourPicker {
         return Dialog(
           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
           child: SizedBox(
-            width: 200, height: 320,
+            width: w, height: h,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
