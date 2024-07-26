@@ -15,8 +15,6 @@ class YourPicker {
     required BuildContext context,
     int? initialYear,
     int count = 3,
-    String confirmText = "Confirm",
-    String cancelText = "Cancel",
     String title = "Select Year",
     TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,
@@ -69,8 +67,6 @@ class YourPicker {
   static Future<DateTime?> showQuarterPicker({
     required BuildContext context,
     int? initialYear,
-    String confirmText = "Confirm",
-    String cancelText = "Cancel",
     String title = "Select Year",
     TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,
@@ -153,8 +149,6 @@ class YourPicker {
   static Future<DateTime?> showHalfPicker({
     required BuildContext context,
     int? initialYear,
-    String confirmText = "Confirm",
-    String cancelText = "Cancel",
     String title = "Select Year",
     TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,

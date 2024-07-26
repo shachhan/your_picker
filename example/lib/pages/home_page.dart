@@ -26,8 +26,6 @@ class _HomePageState extends State<HomePage> {
                   context: context,
                   initialYear: initDate.year,
                   title: "연도 선택",
-                  confirmText: "확인",
-                  cancelText: "취소",
                 );
                 if (result != null) {
                   setState(() {
@@ -46,8 +44,6 @@ class _HomePageState extends State<HomePage> {
                   context: context,
                   initialYear: initDate.year,
                   title: "분기 선택",
-                  confirmText: "확인",
-                  cancelText: "취소",
                 );
                 if (result != null) {
                   setState(() {
@@ -66,8 +62,6 @@ class _HomePageState extends State<HomePage> {
                   context: context,
                   initialYear: initDate.year,
                   title: "반기 선택",
-                  confirmText: "확인",
-                  cancelText: "취소",
                 );
                 if (result != null) {
                   setState(() {
