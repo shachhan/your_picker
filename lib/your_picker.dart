@@ -18,8 +18,12 @@ class YourPicker {
     String confirmText = "Confirm",
     String cancelText = "Cancel",
     String title = "Select Year",
+    TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,
     double h = 250,
+    headerHeight = 50,
+    contentHeight = 40,
+    TextStyle contentStyle = const TextStyle(fontSize: 16),
   }) async {
     initialYear ??= DateTime.now().year;
     final List<int> years = getYears(initialYear, count);
@@ -33,25 +37,8 @@ class YourPicker {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              height: 50,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(cancelText),
-                  ),
-                  Text(title),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(confirmText),
-                  ),
-                ],
-              ),
+              height: headerHeight,
+              child: Center(child: Text(title, style: titleStyle, textAlign: TextAlign.center,)),
             ),
             const Divider(),
             Expanded(
@@ -59,10 +46,12 @@ class YourPicker {
                 itemCount: years.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(years[index].toString(), textAlign: TextAlign.center,),
                     onTap: () {
                       Navigator.pop(context, DateTime(years[index]));
                     },
+                    titleTextStyle: contentStyle,
+                    title: Text(years[index].toString(), textAlign: TextAlign.center,),
+                    minTileHeight: contentHeight,
                   );
                 },
               ),
@@ -80,12 +69,15 @@ class YourPicker {
   static Future<DateTime?> showQuarterPicker({
     required BuildContext context,
     int? initialYear,
-    int count = 3,
     String confirmText = "Confirm",
     String cancelText = "Cancel",
     String title = "Select Year",
+    TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,
     double h = 350,
+    headerHeight = 50,
+    contentHeight = 40,
+    TextStyle contentStyle = const TextStyle(fontSize: 16),
   }) async {
     initialYear ??= DateTime.now().year;
     int selectedYear = initialYear;
@@ -100,29 +92,12 @@ class YourPicker {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  height: 50,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(cancelText),
-                      ),
-                      Text(title),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(confirmText),
-                      ),
-                    ],
-                  ),
+                  height: headerHeight,
+                  child: Center(child: Text(title, style: titleStyle, textAlign: TextAlign.center,)),
                 ),
                 const Divider(),
                 SizedBox(
-                  height: 50,
+                  height: headerHeight,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -135,7 +110,7 @@ class YourPicker {
                         },
                         child: const Text('◀'),
                       ),
-                      Text(selectedYear.toString()),
+                      Text(selectedYear.toString(), style: contentStyle,),
                       TextButton(
                         onPressed: () {
                           // year change +1
@@ -154,10 +129,12 @@ class YourPicker {
                     itemBuilder: (context, index) {
                       String tileText = '${index+1} 분기';
                       return ListTile(
-                        title: Text(tileText, textAlign: TextAlign.center,),
                         onTap: () {
                           Navigator.pop(context, DateTime(selectedYear, index * 3 + 1));
                         },
+                        titleTextStyle: contentStyle,
+                        title: Text(tileText, textAlign: TextAlign.center,),
+                        minTileHeight: contentHeight,
                       );
                     },
                   ),
@@ -176,10 +153,15 @@ class YourPicker {
   static Future<DateTime?> showHalfPicker({
     required BuildContext context,
     int? initialYear,
-    int count = 3,
     String confirmText = "Confirm",
     String cancelText = "Cancel",
     String title = "Select Year",
+    TextStyle titleStyle = const TextStyle(fontSize: 16),
+    double w = 200,
+    double h = 220,
+    headerHeight = 50,
+    contentHeight = 40,
+    TextStyle contentStyle = const TextStyle(fontSize: 16),
   }) async {
     initialYear ??= DateTime.now().year;
     int selectedYear = initialYear;
@@ -189,34 +171,17 @@ class YourPicker {
         return Dialog(
           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
           child: SizedBox(
-            width: 200, height: 220,
+            width: w, height: h,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  height: 50,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(cancelText),
-                      ),
-                      Text(title),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(confirmText),
-                      ),
-                    ],
-                  ),
+                  height: headerHeight,
+                  child: Center(child: Text(title, style: titleStyle, textAlign: TextAlign.center,)),
                 ),
                 const Divider(),
                 SizedBox(
-                  height: 50,
+                  height: headerHeight,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -229,7 +194,7 @@ class YourPicker {
                         },
                         child: const Text('◀'),
                       ),
-                      Text(selectedYear.toString()),
+                      Text(selectedYear.toString(), style: contentStyle),
                       TextButton(
                         onPressed: () {
                           // year change +1
@@ -248,10 +213,12 @@ class YourPicker {
                     itemBuilder: (context, index) {
                       String tileText = index == 0 ? '상반기' : '하반기';
                       return ListTile(
-                        title: Text(tileText, textAlign: TextAlign.center,),
                         onTap: () {
                           Navigator.pop(context, DateTime(selectedYear, index * 6 + 1));
                         },
+                        titleTextStyle: contentStyle,
+                        title: Text(tileText, textAlign: TextAlign.center,),
+                        minTileHeight: contentHeight,
                       );
                     },
                   ),
