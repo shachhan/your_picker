@@ -21,8 +21,8 @@ class YourPicker {
     TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,
     double h = 250,
-    headerHeight = 50,
-    contentHeight = 40,
+    double headerHeight = 50,
+    double contentHeight = 40,
     TextStyle contentStyle = const TextStyle(fontSize: 16),
   }) async {
     initialYear ??= DateTime.now().year;
@@ -75,8 +75,8 @@ class YourPicker {
     TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,
     double h = 350,
-    headerHeight = 50,
-    contentHeight = 40,
+    double headerHeight = 50,
+    double contentHeight = 40,
     TextStyle contentStyle = const TextStyle(fontSize: 16),
   }) async {
     initialYear ??= DateTime.now().year;
@@ -159,8 +159,8 @@ class YourPicker {
     TextStyle titleStyle = const TextStyle(fontSize: 16),
     double w = 200,
     double h = 220,
-    headerHeight = 50,
-    contentHeight = 40,
+    double headerHeight = 50,
+    double contentHeight = 40,
     TextStyle contentStyle = const TextStyle(fontSize: 16),
   }) async {
     initialYear ??= DateTime.now().year;
